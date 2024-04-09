@@ -1,0 +1,12 @@
+version: '3'
+services:
+  # httpdで構成するWebサーバコンテナ
+  web:
+    image: httpd:latest
+    container_name: httpd_web_server
+    ports:
+      - 8080:80
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./containers/main/:/usr/local/apache2/htdocs/main/

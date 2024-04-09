@@ -1,0 +1,46 @@
+version: '3'
+services:
+
+  # sslできるproxy-server
+  https-portal:
+    image: steveltn/https-portal:latest
+    container_name: proxy-server
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      DOMAINS: 'example.docker -> http://httpd-container:80'
+      STAGE: local # オレオレ
+      # STAGE: staging # 検証
+      # STAGE: production # 本番
+    # /etc/hosts にルートテーブル設定追加
+    # XAMPP の Apach Web Server 止めないとおかしくなる
+    restart: always
+    stdin_open: true
+    tty: true
+    # volumes:
+    # - /data/ssl_certs:/var/lib/https-portal
+    networks:
+      - web
+
+  # httpdで構成するWebサーバコンテナ
+  web:
+    image: httpd:latest
+    container_name: httpd-web-server
+    ports:
+      - 8080:80
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./containers/main/:/usr/local/apache2/htdocs/
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+    networks:
+      web:
+        # httpdのnetwork内での別名
+        aliases:
+          - httpd-container
+
+networks:
+  web:
+  # 既存のネットワークへの接続を行う
+    external: true
