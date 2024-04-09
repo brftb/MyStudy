@@ -1,0 +1,40 @@
+被乗数がX、乗数がY、結果としてZを出力する
+アルゴリズムをJavaScriptで実装したソースプログラム
+
+var x=10, y=20, z=0, i=1;
+while(true) {
+    document.write('i='+i+'( ');
+    //yの0ビット目が1かを確認
+    if ((y & 1) > 0) {
+        z = z + x;
+    }
+    document.write('y[0]='+(y & 1)+', z='+z);  
+    x = x << 1; //xを1ビット左シフト
+    y = y >> 1; //yを1ビット右シフト
+    i = i + 1;
+    document.write(', x='+x+', y='+y+' )<br>');
+    if (i > 16) {
+        break;
+    }
+}
+document.write('<b>出力Z='+z+'</b>');
+
+
+
+
+
+じゃんけんの結果表示やつ
+(直線運動と回転運動とを置き換える)
+
+player_hand[0,1,2];
+cpu_hand[0,1,2];
+result1[
+	['勝','あいこ','負']
+	['あいこ','負','勝']
+	['負','勝','あいこ',]
+	];
+result2['勝','あいこ','負'];
+
+echo result1[[player_hand],[cpu_hand]];
+echo result2[(player_hand - cup_hand)%3];
+
