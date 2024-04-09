@@ -1,0 +1,255 @@
+@charset "UTF-8";
+/*==========-==========-==========-==========-==========*/
+/* 大略 */
+/* -------------------------------------------------- */
+#wrapper {
+  min-width: 960px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+header, main, footer {
+  padding: 15px 2.5rem;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* ヘッダー */
+/* -------------------------------------------------- */
+header {
+  background-color: #7e20eb;
+  align-items: flex-end !important;
+  padding-right: 0;
+}
+
+header h1 {
+  margin-left: 2.5rem !important;
+  color: #fff;
+}
+
+header nav {
+  width: 60%;
+  padding: 0 .75rem;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+header nav ul li {
+  padding: 0 .5rem;
+}
+
+header nav ul li a {
+  color: white;
+  padding: 0 .5rem;
+  font-size: 1.8rem;
+  position: relative;
+}
+
+header nav ul li a:hover {
+  color: #ddd;
+  text-decoration: none;
+}
+
+header nav ul li a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-bottom: 1px solid black;
+  transition: 0.3s;
+}
+
+header nav ul li a:hover:before {
+  width: 100%;
+  transition: 0.25s;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* 細部の意匠 */
+/* -------------------------------------------------- */
+input {
+  width: 150px;
+}
+
+.contents {
+  padding: 1rem 2em 1.5rem;
+  border-radius: 10px;
+  width: 60vw;
+  max-width: 70vw;
+  margin: 1em auto 2em;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.question {
+  margin: 15px 0 20px;
+  border: gray 1px dotted;
+  background-color: gainsboro;
+  padding: 5px 0 5px 15px;
+}
+
+/* -------------------------------------------------- */
+#contents-1 #answer {
+  color: darkgreen;
+}
+
+#contents-1 p:nth-of-type(3) {
+  margin: 20px 0;
+}
+
+#contents-1 p:nth-of-type(4) {
+  margin-left: 20px;
+}
+
+/* -------------------------------------------------- */
+#contents-2 .form button {
+  align-self: center;
+}
+
+#contents-2 .result {
+  padding: 5px 0;
+  width: 50%;
+}
+
+#contents-2 .result p {
+  color: darkgreen;
+}
+
+/* -------------------------------------------------- */
+#contents-3 #myform {
+  border: black 2px solid;
+  padding: 20px;
+  position: relative;
+  margin: 30px 50px 20px;
+}
+
+#contents-3 #myform p input {
+  width: 50px;
+}
+
+#contents-3 #myform h4 {
+  position: absolute;
+  top: -15px;
+  left: 65px;
+  background-color: #fff;
+  padding: 0 5px;
+  font-size: 2rem;
+}
+
+#contents-3 #myform #choice {
+  margin-top: 1rem;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#contents-3 #myform #choice label input {
+  display: none;
+}
+
+#contents-3 #myform #choice label .icon {
+  border: cyan 1px solid;
+  border-radius: 10px;
+  width: 6rem;
+  height: 7rem;
+  align-content: center;
+  transition: 1s;
+}
+
+#contents-3 #myform #choice label .icon img {
+  width: 32px;
+}
+
+#contents-3 #myform #choice label .icon span {
+  width: 100%;
+  font-weight: bold;
+}
+
+#contents-3 #myform #choice label input:checked + .icon {
+  background-color: darkturquoise;
+  border: darkturquoise;
+  transform: scale(1.1, 1.1);
+  transition: 1s;
+}
+
+#contents-3 #myform #choice label input:checked + .icon img {
+  filter: invert(100%);
+}
+
+#contents-3 #myform #choice label input:checked + .icon span {
+  color: white;
+}
+
+#contents-3 #myform table {
+  margin-top: 30px;
+}
+
+#contents-3 #myform table td {
+  padding: 5px;
+}
+
+#contents-3 #myform table td:nth-of-type(3) {
+  padding-left: 20px;
+}
+
+#contents-4 table {
+  margin-left: 50px;
+  margin-bottom: 15px;
+}
+
+#contents-4 table td .checkbox {
+  width: 50px;
+}
+
+#contents-4 table td:nth-of-type(4) {
+  padding-left: 15px;
+}
+
+#contents-4 .error {
+  color: crimson;
+  font-size: 1.3rem;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* トップへ戻るボタン */
+/* -------------------------------------------------- */
+#pagetop p {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9;
+}
+
+#pagetop p a {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 50%;
+  border: #646464 1px solid;
+  opacity: 0.5;
+}
+
+#pagetop p a:hover {
+  opacity: 0.8;
+}
+
+#pagetop p::before {
+  content: "";
+  /* 空文字を追加する */
+  position: absolute;
+  /* 中央から配置 */
+  left: 50%;
+  top: 50%;
+  width: 35%;
+  /* 大きさ指定 */
+  height: 35%;
+  border-top: lightskyblue solid 3px;
+  border-right: springgreen solid 3px;
+  transform: translate(-50%, -20%) rotate(-45deg);
+}

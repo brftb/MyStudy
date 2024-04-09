@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+<head>
+   <meta charset="utf-8">
+   <title>06/03 | json練習</title>
+   <link rel="stylesheet" href="../css/BS.css">
+   <link rel="stylesheet" href="../css/sample4.css">
+   <script src="../jquery-3.6.0.min.js" defer></script>
+   <script src="./src2-4.js" defer></script>
+</head>
+<body>
+<div id="wrapper">
+
+<header class="displayFlex">
+   <h1>JSON2-4</h1>
+   <nav><ul><li><a href="#">IH13A219_19_竹田虎太郎</a></li></ul></nav>
+</header>
+
+<main>
+
+<article class="contents">
+   <h2>JSON2-4（Javascript⇒PHP）</h2>
+   <form id="insert_form" action="#" onsubmit="return false;">
+
+      <p>ID：<input type="text" name="id" value="12345"></p>
+      <p>名前：<input type="text" name="name" value="はるのたろう"></p>
+      <p>性別：<input type="radio" name="gender" value="women">女&nbsp;&nbsp;<input type="radio" name="gender" value="men" checked>男<label id="gender_error"></label></p>
+      <p>あなたの趣味は？</p>
+      <p>
+         <input type="checkbox" name="hobby" value="1">ゲーム
+         <input type="checkbox" name="hobby" value="2">読書
+         <input type="checkbox" name="hobby" value="3" checked>旅行
+         <input type="checkbox" name="hobby" value="4" checked>ネット
+         <input type="checkbox" name="hobby" value="5">ドライブ
+         <label id="hobby_error"></label>
+      </p>
+      <p>あなたが使っている携帯会社？</p>
+      <p>
+         <select name="mobilephone">
+            <option value="1">Docomo</option>
+            <option value="2">au</option>
+            <option value="3" selected>softbank</option>
+            <option value="4">楽天</option>
+            <option value="5">その他</option>
+         </select>
+      </p>
+      <p>好きな料理は？</p>
+      <p>
+         <select name="food" size="5" multiple>
+            <option value="1">和食</option>
+            <option value="2" selected>洋食</option>
+            <option value="3" selected>中華</option>
+            <option value="4" selected>イタリアン</option>
+            <option value="5">その他</option>
+         </select><label id="food_error"></label>
+      </p>
+      <button id="button">ボタン</button>
+   </form>
+
+   <p>JSで作成した連想配列をJson化（JSON.stringify）:</p>
+   <div id="output1"></div>
+   <hr>
+   <p>PHPから受信した値を出力:</p>
+   <div id="output2"></div>
+   <hr>
+   <p>PHPから受信した値をParse（JSON.parse）した値:</p>
+   <div id="output3"></div>
+
+</article>
+
+</main>
+
+</div><!-- wrapper -->
+</body>
+</html>

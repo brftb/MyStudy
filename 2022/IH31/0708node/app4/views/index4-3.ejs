@@ -1,0 +1,13 @@
+<%- include('./partials/header.ejs');  %>
+
+<h1>index4-3.ejs</h1>
+
+<%-value1 %>
+
+<% for(let i=0; i<10; i++){ %>
+<p>このループは<%=i+1 %>回目です</p>
+<% } %>
+
+<p>画面表示回数：<%-count %>回目</p>
+
+<%- include('./partials/footer.ejs');  %><br>

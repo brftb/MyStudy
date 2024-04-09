@@ -1,0 +1,24 @@
+<html>
+<%- include('./partials/header.ejs');%>
+<body>
+
+<h1>node6-3 チャットルーム０２</h1>
+
+・GET転送
+<form id="chat-form">
+   <input type="text" name="get_text" id="get-text">
+   <input type="submit" value="GET送信">
+</form>
+<ul id="output"></ul>
+
+<hr>
+<img src="img/image1.jpg" height="10%">
+<img src="img/image2.png" height="10%">
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/javascript6-3-2.js"></script>
+
+</body>
+<%- include('./partials/footer.ejs');%>
+</html>

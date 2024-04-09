@@ -1,0 +1,25 @@
+<html>
+<%- include('./partials/header.ejs');%>
+<body>
+
+<h1>node6-X Hello index.html Page</h1>
+
+・GET転送
+<form id="chat-form" action="/" method="GET">
+   <input type="text" id="chat-input1">
+   <input type="text" id="chat-input2">
+   <input type="submit" value="GET送信">
+</form>
+<ul id="output"></ul>
+
+<hr>
+<img src="img/image1.jpg" height="10%">
+<img src="img/image2.png" height="10%">
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/javascript6-2.js"></script>
+
+</body>
+<%- include('./partials/footer.ejs');%>
+</html>
