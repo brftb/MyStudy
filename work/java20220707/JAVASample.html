@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+   <meta charset="utf-8">
+   <!-- <link rel="icon" type="image/x-icon" href="./img/favicon.png"> -->
+   <title>JAVAJAVA</title>
+   <link rel="stylesheet" href="../最新のテンプレ/css/BS.css">
+   <link rel="stylesheet" href="./css/test.css">
+   <!-- <script src="./js/file_preview.js" defer></script> -->
+   <script src="./js/jquery-3.6.0.min.js" defer></script>
+   <script src="./js/jquery.validate.min.js" defer></script>
+   <script src="./js/userRegister.js" defer></script>
+   <!-- google fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+
+<header class="displayFlex">
+   <h1><a href="#">画像編集</a></h1>
+   <nav><ul><li><a href="#">area</a></li><li><a href="#">piece</a></li><li><a href="#">section</a></li><li><a href="#">category</a></li><li><a href="#">field</a></li><li><a href="#">zone</a></li><li><a href="#">branch</a></li><li><a href="#">secter</a></li><li><a href="#">part</a></li></ul></nav>
+</header>
+
+<main>
+
+<article class="contents" id="contents-1">
+<div class="displayFlex">
+   <div class="displayFlex" id="search">
+      <p>商品名：</p>
+      <input type="text" name="searchText">
+      <button class="whiteBtn" name="btn" value="productSearch">検索</button>
+   </div>
+   <button name="btn" value="productRegister">新規登録</button>
+</div>
+<table class="table table-striped table-float">
+   <thead>
+      <tr>
+         <!-- <th class="tableMenu"><button class="displayFlex" name="sort" value="id"><span></span><span>商品No</span><span>▾</span></button></th> -->
+         <th class="tableMenu"><button name="btn" value="sortid">商品No▾</button></th>
+         <th class="tableMenu"><button name="btn" value="sortname">商品名▾</button></th>
+         <th class="tableMenu"><button name="btn" value="sortmaker">メーカー名▾</button></th>
+         <th class="tableMenu"><button name="btn" value="sortgenre">ジャンル名▾</button></th>
+         <th class="tableMenu"><button name="btn" value="sortprice">価格▾</button></th>
+         <th class="tableMenu"><button name="btn" value="sortstock">在庫数▾</button></th>
+         <th class="tableMenu">編集/削除</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>aaa1</td><td>aaa2</td><td>aaa3</td><td>aaa4</td><td>aaa5</td><td>aaa6</td>
+         <td><button class="anchorBtn" name="btn" value="update">編集</button>・<button class="anchorBtn" name="btn" value="delete">削除</button></td>
+      </tr>
+      <tr>
+         <td>aaa1</td><td>aaa2</td><td>aaa3</td><td>aaa4</td><td>aaa5</td><td>aaa6</td>
+         <td><button class="anchorBtn" name="btn" value="update">編集</button>・<button class="anchorBtn" name="btn" value="delete">削除</button></td>
+      </tr>
+      <tr>
+         <td>aaa1</td><td>aaa2</td><td>aaa3</td><td>aaa4</td><td>aaa5</td><td>aaa6</td>
+         <td><button class="anchorBtn" name="btn" value="update">編集</button>・<button class="anchorBtn" name="btn" value="delete">削除</button></td>
+      </tr>
+   </tbody>
+</table>
+</article><!-- contents -->
+
+<article class="contents" id="contents-2">
+   <form action="./ManagerServlet" method="post">
+      <p>メーカー名：</p>
+      <div class="displayFlex send-column">
+         <p><a class="buttonAnchor" href="./makerVerify.jsp">修正</a></p>
+         <!-- <button name="btn" value="makerFix">修正</button> -->
+         <p><button name="btn" value="makerRegister">登録</button></p>
+      </div>
+   </form>
+</article><!-- contents -->
+
+<article class="contents" id="contents-3">
+   <table class="table table-striped">
+      <tr>
+         <th class="tableMenu">商品No▾</th>
+         <td>data01</td>
+      </tr>
+      <tr>
+         <th class="tableMenu">商品名</th>
+         <td><input type="text" name="name" value=""></td>
+      </tr>
+      <tr>
+         <th class="tableMenu">メーカー名</th>
+         <td>data03</td>
+      </tr>
+      <tr>
+         <th class="tableMenu">ジャンル名</th>
+         <td>data04</td>
+      </tr>
+      <tr>
+         <th class="tableMenu">価格</th>
+         <td>data05</td>
+      </tr>
+      <tr>
+         <th class="tableMenu">在庫数</th>
+         <td>data06</td>
+      </tr>
+   </table>
+   <input type="hidden" name="id" value="">
+</article><!-- contents -->
+
+<article class="contents" id="contents-4">
+   <p>メーカー名：
+      <select name="level">
+         <option value="0">選択してください</option>
+         <option value="1">1995年</option>
+         <option value="2">1996年</option>
+         <option value="3">1997年</option>
+         <option value="4" selected>1998年</option>
+         <option value="5">1999年</option>
+         <option value="6">2000年</option>
+      </select>
+   </p>
+</article><!-- contents -->
+
+<article class="contents" id="contents-5">
+   <form action="#form-5" method="post" id="form-5">
+      <table><tbody>
+         <tr>
+            <th>ユーザーID</th>
+            <th class="central">：</th>
+            <td><input type="text" name="id" value="" id="id" data-error_placement="#idErrorPlace"></td>
+            <td id="idErrorPlace"></td>
+         </tr>
+         <tr>
+            <th>名前</th>
+            <th class="central">：</th>
+            <td><input type="text" name="name" value="" id="name" data-error_placement="#nameErrorPlace"></td>
+            <td id="nameErrorPlace"></td>
+         </tr>
+         <tr>
+            <th>パスワード</th>
+            <th class="central">：</th>
+            <td><input type="password" name="password" id="password" data-error_placement="#passwordErrorPlace"></td>
+            <td id="passwordErrorPlace"></td>
+         </tr>
+         <tr>
+            <th>性別</th>
+            <th class="central">：</th>
+            <td>
+               <div class="displayFlex" id="gender">
+                  <label class="displayFlex">
+                     <input type="radio" name="gender" value="M" class="gender" data-error_placement="#genderErrorPlace">
+                     <p>male</p>
+                  </label>
+                  <label class="displayFlex">
+                     <input type="radio" name="gender" value="F" class="gender">
+                     <p>female</p>
+                  </label>
+               </div>
+            </td>
+            <td id="genderErrorPlace"></td>
+         </tr>
+         <tr>
+            <td rowspan="2">生年月日</td>
+            <th class="central">：</th>
+            <td class="displayFlex" id="birthday">
+               <p><input type="text" name="year" value="" id="year" data-error_placement="#yearErrorPlace">年</p>
+               <p><input type="text" name="month" value="" id="month" data-error_placement="#monthErrorPlace">月</p>
+               <p><input type="text" name="day" value="" id="day" data-error_placement="#dayErrorPlace">日</p>
+            </td>
+         </tr>
+         <tr>
+            <td class="displayFlex">
+               <p id="yearErrorPlace"></p>
+               <p id="monthErrorPlace"></p>
+               <p id="dayErrorPlace"></p>
+            </td>
+         </tr>
+      </tbody></table>
+      <button name="btn" value="userVerify" id="uesrVerifyBtn">確認</button>
+   </form>
+</article><!-- contents -->
+
+<article class="contents" id="contents-6">
+   <p><input type="number" value="1" name="">個</p>
+   <p><button>カートに入れる</button></p>
+   <p><label><input type="radio" name="narrow" value="" checked>商品毎</label></p>
+   <p><label><input type="radio" name="narrow" value="">ユーザー毎</label></p>
+   <p><button name="btn" value="narrowAll" disabled style="cursor: not-allowed;">全件表示</button></p>
+   <p><button name="btn" value="narrowProduct" disabled class="disabledBtn">商品毎</button></p>
+   <p><button name="btn" value="narrowUser">ユーザー毎</button></p>
+   <p>zaiko<input type="number" value="1" name="" max="5">個</p>
+   <p><input type="hidden" name="" value=""></p>
+   <p><button class="destructBtn">自爆スイッチ</button></p>
+   <p class="destructBtn2"><button></button>DONT PUSH</p>
+   <p><button class="whiteBtn"><img src="./img/search_icon.png" width="24px" alt="search"></button></p>
+</article><!-- contents -->
+
+<article class="contents" id="contents-6">
+   <div class="displayFlex" style="align-items: stretch; justify-content: start;">
+      <div class="product-card" style="background-color: black; opacity: .5; width: calc(33.3% - 10px); margin: 5px; padding: 8px;">
+         <p>商品名</p>
+         <p>メーカー名</p>
+         <p>じゃんる</p>
+         <p>かかく</p>
+         <p>在庫数</p>
+      </div>
+      <div class="product-card" style="background-color: red; opacity: .5; width: calc(33.3% - 10px); margin: 5px; padding: 8px;">
+         <p>商品名なんかようかここのかとうかなのかなのか</p><p>メーカー名</p><p>じゃんる</p><p>かかく</p><p>在庫数</p>
+      </div>
+      <div class="product-card" style="background-color: blue; opacity: .5; width: calc(33.3% - 10px); margin: 5px; padding: 8px;">
+         <p>商品名</p><p>メーカー名</p><p>じゃんる</p><p>かかく</p><p>在庫数</p>
+      </div>
+      <div class="product-card" style="background-color: green; opacity: .5; width: calc(33.3% - 10px); margin: 5px; padding: 8px;">
+         <p>商品名</p><p>メーカー名</p><p>じゃんる</p><p>かかく</p><p>在庫数</p>
+      </div>
+   </div>
+</article><!-- contents -->
+
+<article class="contents" id="userRegister">
+   <table>
+      <tr>
+         <th rowspan="2">生年月日</th>
+         <th rowspan="2" class="central">：</th>
+         <td class="displayFlex" id="birthday">
+            <p><input type="text" name="year" value="aaa">年</p>
+            <p><input type="text" name="month" value="bbb">月</p>
+            <p><input type="text" name="day" value="ccc">日</p>
+         </td>
+      </tr>
+      <tr>
+         <td class="displayFlex">
+            <p id="yearErrorPlace"></p>
+            <p id="monthErrorPlace"></p>
+            <p id="dayErrorPlace" class="error"></p>
+         </td>
+      </tr>
+   </table>
+</article><!-- contents -->
+
+<article class="contents" id="login">
+   <form action="" method="post">
+      <div class="input-column">
+         <p>ユーザーID</p>
+         <input type="text" name="id" value="">
+         <p>パスワード</p>
+         <input type="password" name="password" value="">
+      </div>
+      <p class="errorMsg"></p>
+      <p><button name="" value="">ログイン</button></p>
+   </form>
+   <p class="anymore"><span>利用規約</span>と<span>プライバシー規約</span>に同意してログインしてください。</p>
+   <p class="anymore"><span>パスワードを忘れた場合</span></p>
+</article><!-- contents -->
+
+
+</main>
+
+<footer>
+   <p>COPYRIGHT © ALL RIGHTS RESERVED.</p>
+</footer>
+
+<div id="hamburgerMenu">
+   <input type="checkbox" id="burger">
+   <label for="burger"><span></span></label>
+   <ul id="hamburgerContents">
+      <li>nanika01</li>
+      <li>0000002</li>
+      <li>button</li>
+      <li>44yen</li>
+   </ul>
+</div>
+
+<div id="puldownMenu">
+   <p></p>
+   <ul id="puldownContents">
+      <li>nanika01</li>
+      <li>0000002</li>
+      <li><a href="">buttonbuttonbuttonbutton</a></li>
+      <li>44yen</li>
+   </ul>
+</div>
+
+<div id="pagetop">
+   <p><a href="#"></a></p>
+</div>
+
+</div><!-- wrapper -->
+</body>
+</html>

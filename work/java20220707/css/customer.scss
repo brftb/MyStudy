@@ -1,0 +1,406 @@
+/*==========-==========-==========-==========-==========*/
+/* 大略 */
+/* -------------------------------------------------- */
+#wrapper{
+   width: 100vw;
+   // min-width: 960px;
+   margin:0 auto;
+   min-height: 100vh;
+}
+header,main,footer{
+   padding: 15px 2.5rem;
+}
+
+
+/*==========-==========-==========-==========-==========*/
+/* ヘッダー */
+/* -------------------------------------------------- */
+
+header{
+   background-color: rgb(126, 32, 235);
+   h1{
+      a{
+         color: #fff;
+         &:hover{
+            text-decoration: none;
+            color: #fff;
+            border-color: white;
+         }
+         border: transparent 1px solid; // ずれ対策
+         border-radius: 3px;
+         padding: 10px;
+      }
+      font-family: 'Yusei Magic', sans-serif;
+      // margin-right: 50px;
+   }
+   padding: 5px 2.5rem;
+   height: 70px; //fontfamily変えたら65.73pxになった
+   justify-content: space-between !important;
+   h2{
+      color: whitesmoke;
+   }
+   padding: 0 5rem;
+}
+
+/* puldownMenu */
+#puldownMenu{
+   position: absolute; right: 0; top: 0;
+   z-index: 9;
+   // width: 70px; height: 70px;
+   p{
+      width: 70px; height: 70px;
+      position: absolute;
+      right: 0;
+   }
+   p::before{
+      content: ""; display: block;
+      position: absolute; left: 50%; top: 50%;
+      width: 20px; height: 20px;
+      width: 8px; height: 8px;
+      border-right: whitesmoke solid 2px;
+      border-bottom: whitesmoke solid 2px;
+      transform: translate(-50%,-70%) rotate(45deg);
+   }
+   ul{
+      height: 0;
+      overflow: hidden;
+      background-color: rgb(126, 32, 235);
+      a, button{
+         border: none;
+         background-color: transparent;
+         &:hover{
+            color: crimson;
+            text-decoration: underline;
+            background-color: rgb(119, 30, 221);
+         }
+         color: white;
+         letter-spacing: 1.5px;
+         font-size: 1.8rem;
+         margin: 0;
+         padding: 10px 0;
+         width: 250px;
+         font-weight: bolder;
+      }
+      transition: .5s;
+      margin-top: 70px;
+      li{
+         // padding: 4px 10px;
+         border-top: dimgray 1px solid;
+         // &:first-of-type{
+         //    border-top: none;
+         // }
+      }
+      border-radius: 0 0 0 6px;
+   }
+   p:hover ~ ul, &:hover ul{
+      // height: fit-content;
+      height: calc((27px + 10px * 2) * 3 + 3px);
+      width: fit-content;
+      //px指定していないものはtransitionが効かない
+      // overflow: visible;
+   }
+}
+
+
+/*==========-==========-==========-==========-==========*/
+/* 細部の意匠 */
+/* -------------------------------------------------- */
+
+input{width: 150px;}
+
+/*==========-==========-==========-==========-==========*/
+/* login画面 */
+/* -------------------------------------------------- */
+
+#login-h1{
+   color: #fff;
+   padding: 10px;
+}
+
+#login{
+   // height: calc(100vh - 70px - 54px);
+   // min-height: 232px;
+   h2{
+      // text-align: center;
+      margin: .5rem 0 1.5rem calc((100% - 300px) / 2);
+      font-size: 3rem;
+      font-weight: unset;
+   }
+   .contents{
+      min-width: 480px;
+      max-width: 480px;
+      form{
+         margin: 2rem 0;
+         .input-column{
+            p{
+               text-align: start;
+               margin-left: calc((100% - 300px) / 2);
+            }
+            input{
+               width: 300px;
+               margin: 0 calc((100% - 300px) / 2) 1rem;
+            }
+         }
+         button{
+            width: 300px;
+            margin-top: 3rem;
+         }
+      }
+      // .errorMsg{
+      //    height: 8px;
+      // }
+      .anymore{
+         margin: 1rem calc((100% - 300px) / 2);
+         font-size: 1.3rem;
+         span{
+            color: #0d6efd;
+            text-decoration: underline;
+         }
+      }
+   }
+   .second{
+      box-shadow: unset;
+      padding: 1.5rem 0 0;
+      p{
+         text-align: center;
+         font-size: 1.4rem;
+         button{
+            width: 300px;
+         }
+      }
+   }
+   min-height: calc(100vh - 70px - 54px);
+}
+
+
+/*==========-==========-==========-==========-==========*/
+/* endUserTop画面 */
+/* -------------------------------------------------- */
+
+/* 全体をグリッド */
+#endUserTop{
+	display: grid;
+	// grid-template-rows: 180px 570px auto;
+   grid-template-columns: calc(200px + 25px) calc(100% - 200px);
+   grid-template-areas:
+      "nav main"
+      "nav footer"
+	;
+}
+/* グリッドエリア */
+#search-contents{grid-area: nav;}
+#list-contents{grid-area: main;}
+footer{grid-area: footer;}
+
+#endUserTop{
+   #search-contents{
+      margin: 1rem 0 2rem;
+      // width: 200px;
+      padding-right: 25px;
+      .input-column{
+         p{
+            text-align: start;
+            margin-left: 25px;
+         }
+         input,select{
+            width: 150px;
+            margin: 0 auto 1rem;
+            border-radius: 3px;
+         }
+      }
+      #product-name-serach{
+         input{
+            height: 40px;
+            padding-left: calc((40px - 28px) / 2);
+            // border-radius: 5px 0 0 5px;
+            border-radius: 5px;
+            border: #ffbe00 2px solid; // (yellow + gold) / 2
+            // border-right: unset;
+            &:focus{
+               outline: #ffbe00 1.5px solid;
+            }
+            width: 90%;
+            padding-right: 40px;
+         }
+         position: relative;
+         .whiteBtn{
+            position: absolute; top: 0; right: 5%;
+            img{
+               width: 20px;
+               vertical-align: middle;
+            }
+            height: 40px;
+            width: 40px;
+            border-radius: 0 5px 5px 0;
+            border: #ffbe00 2px solid;
+            background-color: #ffbe00;
+         }
+         margin: 3rem 0;
+      }
+      .sortBtn{
+         width: 150px;
+         margin: 3rem 0 0;
+         padding: 1rem;
+      }
+      position: sticky;
+      top: calc(1rem + 15px);
+      // height: 460px; // stickyの為
+      height: 502px; // stickyの為
+      // min-height: calc(-70px - 15px + 100vh - 15px - 54px); // - header - padding - footer
+      #serach-contents-background{
+         // height: calc(15px + 1rem + 100% + 2rem + 15px); // padding + margin + contents + margin + padding
+         // height: calc(70px + 15px + 100vh + 15px + 54px); // 考慮
+         width: calc(200px + 25px * 2); height: 100vh;
+         // position: absolute;
+         // top: calc(-15px - 1rem - 70px); left: -2.5rem;
+         background-color: #f0f0ff;
+         z-index: -9;
+         border-right: rgb(200, 200, 200) solid 3px;
+         position: fixed; top: 0; left: 0; // ブラウザからの相対位置
+      }
+      .clearBtn{
+         width: 150px;
+         margin: 2rem calc(50% - 75px) 0;
+         opacity: .85;
+      }
+   }
+   #list-contents{
+      width: 90%;
+      min-height: calc(-70px - 15px - 1rem + 100vh - 2rem - 15px - 54px); // 最小の高さ(footer用)を確保
+      box-shadow: unset;
+      #list-title{
+         justify-content: space-between;
+         margin-bottom: 1.75rem;
+      }
+      #cards-list{
+         align-items: stretch;
+         .product-card{
+            width: calc(33.3% - 10px); margin: 8px 5px; // 横３つ表示
+            padding: 12px 8px;
+            // box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+            border: solid 1px rgba(0,0,0,.15);
+            border-radius: 3px;
+         }
+         justify-content: start;
+      }
+   }
+}
+
+header{position: relative; z-index: 999;}
+footer{position: relative; z-index: 999;}
+
+
+/*==========-==========-==========-==========-==========*/
+/* detail画面 */
+/* -------------------------------------------------- */
+
+#detail{
+   .contents{
+      min-height: calc(-70px - 15px - 1rem + 100vh - 2rem - 15px - 54px); // 最小の高さ(footer用)を確保
+      a, button{
+         min-width: 100px;
+      }
+   }
+   table{
+      // width: 320px;
+      // min-height: calc(200px + 50px);
+      th, td{
+         padding: 1.2rem;
+      }
+      th:nth-of-type(1){
+         text-align: end;
+         padding-right: 0;
+      }
+      th:nth-of-type(2){
+         padding-right: .6rem;
+         padding-left: .6rem;
+      }
+      td{
+         text-align: start;
+         padding-left: 0;
+      }
+   }
+   input{
+      width: 50px;
+      border-radius: 5px;
+      border: gray 1px solid;
+      margin-right: 3px;
+   }
+}
+
+
+/*==========-==========-==========-==========-==========*/
+/* cart画面 */
+/* -------------------------------------------------- */
+
+#cart{
+   .contents{
+      min-height: calc(-70px - 15px - 1rem + 100vh - 2rem - 15px - 54px); // 最小の高さ(footer用)を確保
+      #purchaseBtn{
+         width: 120px;
+         height: 60px;
+         font-weight: bolder;
+         font-size: 1.8rem;
+         letter-spacing: 1.5px;
+         border-radius: 5px;
+         background-color: #ffeb00; //(yellow+gold)/2
+         &:hover{
+            background-color: gold;
+         }
+      }
+   }
+   input{
+      width: 50px;
+      border-radius: 5px;
+      border: gray 1px solid;
+   }
+}
+
+
+/*==========-==========-==========-==========-==========*/
+/* purchaseHistory画面 */
+/* -------------------------------------------------- */
+#purchaseHistory{
+   .contents{
+      // height: calc(100vh - 70px - 54px);
+      min-height: calc(-70px - 15px - 1rem + 100vh - 2rem - 15px - 54px); // 最小の高さ(footer用)を確保
+      .tableMenu{
+         padding: 0.75rem !important; //buttonないので
+      }
+   }
+}
+
+
+/*==========-==========-==========-==========-==========*/
+/* トップへ戻るボタン */
+/* -------------------------------------------------- */
+#pagetop p{
+   width: 60px;
+   height: 60px;
+   position: fixed;
+   right: 30px;
+   bottom: 30px;
+   z-index: 9;
+   a{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(100, 100, 100, 0.4);
+      border-radius: 50%;
+      border: rgb(100, 100, 100) 1px solid;
+      opacity: 0.5;
+      &:hover{
+         opacity: 0.8;
+      }
+   }
+   &::before{
+      content: "";/* 空文字を追加する */
+      position: absolute;/* 中央から配置 */
+      left: 50%;
+      top: 50%;
+      width: 35%;/* 大きさ指定 */
+      height: 35%;
+      border-top: lightskyblue solid 3px;
+      border-right: springgreen solid 3px;
+      transform: translate(-50%,-20%)/* 位置調整 */ rotate(-45deg)/* 回転 */;
+   }
+}

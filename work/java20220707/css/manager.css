@@ -1,0 +1,407 @@
+@charset "UTF-8";
+/*==========-==========-==========-==========-==========*/
+/* 大略 */
+/* -------------------------------------------------- */
+header, main, footer {
+  padding: 16px 2.4rem;
+}
+
+/* 全体をグリッド */
+#wrapper {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-areas: "nav main";
+}
+
+/* グリッドエリア */
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* ヘッダー */
+/* -------------------------------------------------- */
+header {
+  background-color: #7e20eb;
+  align-items: flex-end !important;
+}
+
+header h1 {
+  margin-left: 2.5rem !important;
+  color: #fff;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* 細部の意匠 */
+/* -------------------------------------------------- */
+input {
+  width: 150px;
+  border-radius: 3px;
+  border-color: gray;
+}
+
+h2 {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 16px;
+  color: #fff;
+  position: sticky;
+  top: 16px;
+  left: 0;
+}
+
+h2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(-16px);
+  left: -24px;
+  width: calc(100% + 24px * 2);
+  height: calc(100% + 16px);
+  background-color: #7e20eb;
+  z-index: -1;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* sideMenu */
+/* -------------------------------------------------- */
+nav {
+  background-color: #f0f0ff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+nav p {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7e20eb;
+}
+
+nav p button {
+  background-color: rgba(255, 217, 0, 0.9);
+}
+
+nav p button:hover {
+  background-color: gold;
+}
+
+nav li {
+  border-bottom: solid 1px silver;
+}
+
+nav li a, nav li button {
+  padding: 1.6rem 0 !important;
+  font-size: 2rem;
+  width: 100%;
+}
+
+nav li a:hover, nav li button:hover {
+  background-color: #dbdbf0 !important;
+  text-decoration: none !important;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* userRegister & userVerify */
+/* -------------------------------------------------- */
+#userRegister table .error {
+  color: crimson;
+}
+
+#userRegister table .input-column {
+  width: calc((50px + 16px + 3px * 2) * 3);
+  padding-right: 12px;
+}
+
+#userRegister table .input-column input {
+  width: 100%;
+}
+
+#userRegister table #gender {
+  padding-right: 12px;
+}
+
+#userRegister table #gender label {
+  width: 80px;
+  text-align: center;
+}
+
+#userRegister table #gender label [type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+
+#userRegister table #birthday p {
+  padding: 3px;
+}
+
+#userRegister table #birthday p input {
+  width: 45px;
+}
+
+#userRegister table #birthday p:nth-of-type(1) input {
+  width: calc(50px + 10px);
+}
+
+#userRegister table .central {
+  width: 32px;
+}
+
+#userRegister table th, #userRegister table #birthday {
+  height: 50px;
+}
+
+#userVerify tr {
+  border-bottom: #dee2e6 solid 1px;
+}
+
+#userVerify tr:first-of-type {
+  border-top: #dee2e6 solid 1px;
+}
+
+#userVerify tr th {
+  padding-left: 30px;
+}
+
+#userVerify tr td {
+  height: 50px;
+  padding-right: 30px;
+}
+
+#userVerify tr .central {
+  width: 32px;
+  padding: 0;
+}
+
+#userVerify .send-column {
+  padding-top: 3rem;
+}
+
+#userVerify .send-column a, #userVerify .send-column button {
+  width: 100px;
+}
+
+#userRegister table, #userVerify table {
+  width: fit-content;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* makerRegister & genreRegister */
+/* makerVerify & genreVerify */
+/* -------------------------------------------------- */
+#makerRegister form, #genreRegister form {
+  margin: 3rem auto;
+}
+
+#makerRegister form button, #genreRegister form button {
+  width: 100px;
+  margin-top: 2rem;
+}
+
+#makerRegister form .error, #genreRegister form .error {
+  color: crimson;
+}
+
+#makerVerify form, #genreVerify form {
+  margin: 3rem auto;
+}
+
+#makerVerify form .send-column, #genreVerify form .send-column {
+  padding-top: 3rem;
+}
+
+#makerVerify form .send-column a, #makerVerify form .send-column button, #genreVerify form .send-column a, #genreVerify form .send-column button {
+  width: 100px;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* productManager */
+/* productRegister */
+/* productVerify */
+/* productUpdate */
+/* productDelete */
+/* -------------------------------------------------- */
+#productManager .form-1 {
+  padding-top: 5rem;
+  text-align: end;
+}
+
+#productManager .form-1 #search p {
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+
+#productManager .form-1 #search input {
+  border-radius: 3px 0 0 3px;
+}
+
+#productManager .form-1 #search input:focus {
+  outline: none;
+  border: #015FCC solid 2px;
+}
+
+#productManager .form-1 #search button {
+  height: 32px;
+}
+
+#productManager .form-1 .newBtn {
+  width: 150px;
+  margin: 0;
+  justify-content: space-between;
+}
+
+#productManager .form-1 .newBtn span {
+  font-weight: 900;
+}
+
+#productManager .form-2 table {
+  min-width: 720px;
+}
+
+#productManager .form-2 table tr th:nth-of-type(1) {
+  width: 10%;
+}
+
+#productManager .form-2 table tr th:nth-of-type(2) {
+  width: 25%;
+}
+
+#productManager .form-2 table tr th:nth-of-type(3) {
+  width: 15%;
+}
+
+#productManager .form-2 table tr th:nth-of-type(4) {
+  width: 15%;
+}
+
+#productManager .form-2 table tr th:nth-of-type(5) {
+  width: 13%;
+}
+
+#productManager .form-2 table tr th:nth-of-type(6) {
+  width: 10%;
+}
+
+#productManager .form-2 table tr th:nth-of-type(7) {
+  width: 12%;
+}
+
+#productRegister table, #productVerify table, #productUpdate table, #productDelete table {
+  min-width: 320px;
+  max-width: 480px;
+}
+
+#productRegister table tr, #productVerify table tr, #productUpdate table tr, #productDelete table tr {
+  height: 50px;
+}
+
+#productRegister table .central, #productVerify table .central, #productUpdate table .central, #productDelete table .central {
+  width: 32px;
+}
+
+#productRegister h2 a, #productVerify h2 a, #productUpdate h2 a, #productDelete h2 a {
+  display: initial;
+  color: white;
+}
+
+#productRegister button, #productVerify button, #productUpdate button, #productDelete button {
+  width: 100px;
+}
+
+#productRegister .error, #productVerify .error, #productUpdate .error, #productDelete .error {
+  color: crimson;
+}
+
+#productRegister table input {
+  width: 200px;
+}
+
+#productRegister table select {
+  width: 200px;
+}
+
+#productRegister table .input-column {
+  width: 60%;
+}
+
+#productVerify form {
+  margin: 3rem auto;
+}
+
+#productVerify form .send-column {
+  padding-top: 3rem;
+}
+
+#productVerify form .send-column a, #productVerify form .send-column button {
+  width: 100px;
+}
+
+#productVerify form table {
+  width: fit-content;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* salesList */
+/* -------------------------------------------------- */
+#salesList #form-narrow button {
+  width: 115px;
+}
+
+#salesList #form-narrow .disabledBtn {
+  opacity: 1;
+  border-color: #ffbe00;
+  background-color: #ffbe00;
+  cursor: default;
+}
+
+#salesList table {
+  min-width: 720px;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* トップへ戻るボタン */
+/* -------------------------------------------------- */
+#pagetop p {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9;
+}
+
+#pagetop p a {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 50%;
+  border: #646464 1px solid;
+  opacity: 0.5;
+}
+
+#pagetop p a:hover {
+  opacity: 0.8;
+}
+
+#pagetop p::before {
+  content: "";
+  /* 空文字を追加する */
+  position: absolute;
+  /* 中央から配置 */
+  left: 50%;
+  top: 50%;
+  width: 35%;
+  /* 大きさ指定 */
+  height: 35%;
+  border-top: lightskyblue solid 3px;
+  border-right: springgreen solid 3px;
+  transform: translate(-50%, -20%) rotate(-45deg);
+}

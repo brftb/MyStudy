@@ -1,0 +1,316 @@
+@charset "UTF-8";
+/*==========-==========-==========-==========-==========*/
+/* 大略 */
+/* -------------------------------------------------- */
+header, main, footer {
+  padding: 16px 2.4rem;
+}
+
+/* 全体をグリッド */
+#wrapper {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-areas: "nav main" "nav footer";
+}
+
+/* グリッドエリア */
+header {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* ヘッダー */
+/* -------------------------------------------------- */
+header {
+  background-color: #7e20eb;
+  align-items: flex-end !important;
+}
+
+header h1 {
+  margin-left: 2.5rem !important;
+  color: #fff;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* 細部の意匠 */
+/* -------------------------------------------------- */
+input {
+  width: 150px;
+  border-radius: 3px;
+  border-color: gray;
+}
+
+h2 {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 16px;
+  color: #fff;
+  position: sticky;
+  top: 16px;
+  left: 0;
+}
+
+h2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(-16px);
+  left: -24px;
+  width: calc(100% + 24px * 2);
+  height: calc(100% + 16px);
+  background-color: #7e20eb;
+  z-index: -1;
+}
+
+#login {
+  min-width: 480px;
+  max-width: 480px;
+}
+
+#login form {
+  margin: 2rem 0;
+}
+
+#login form .input-column p {
+  text-align: start;
+  margin-left: calc((100% - 300px) / 2);
+}
+
+#login form .input-column input {
+  width: 300px;
+  margin: 0 calc((100% - 300px) / 2) 1rem;
+}
+
+#login form button {
+  width: 300px;
+  margin-top: 3rem;
+}
+
+#login .anymore {
+  margin: 1rem calc((100% - 300px) / 2);
+  font-size: 1.3rem;
+}
+
+#login .anymore span {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* sideMenu */
+/* -------------------------------------------------- */
+nav {
+  background-color: #f0f0ff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+nav p {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7e20eb;
+}
+
+nav p button {
+  background-color: rgba(255, 217, 0, 0.9);
+}
+
+nav p button:hover {
+  background-color: gold;
+}
+
+nav li {
+  border-bottom: solid 1px silver;
+}
+
+nav li a, nav li button {
+  padding: 1.6rem 0 !important;
+  font-size: 2rem;
+  width: 100%;
+}
+
+nav li a:hover, nav li button:hover {
+  background-color: #dbdbf0 !important;
+  text-decoration: none !important;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* hamburgerMenu */
+/* -------------------------------------------------- */
+#hamburgerMenu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  background-color: rgba(172, 255, 47, 0.8);
+  transition: .5s;
+}
+
+#hamburgerMenu input {
+  display: none;
+}
+
+#hamburgerMenu label {
+  background-color: blue;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  z-index: 5;
+}
+
+#hamburgerMenu label span, #hamburgerMenu label span::before, #hamburgerMenu label span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2.8rem;
+  height: 2px;
+  background-color: red;
+  border-radius: 5px;
+  transition: .15s;
+}
+
+#hamburgerMenu label span::before {
+  bottom: 8px;
+}
+
+#hamburgerMenu label span::after {
+  top: 8px;
+}
+
+#hamburgerMenu input:checked ~ label span::before {
+  transform: rotate(45deg);
+  bottom: 0;
+}
+
+#hamburgerMenu input:checked ~ label span {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#hamburgerMenu input:checked ~ label span::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+#hamburgerMenu ul {
+  overflow: hidden;
+  transform: translateX(100%);
+  background-color: pink;
+  padding: 10px 30px 20px;
+  padding-top: calc(15px + 50px);
+  transition: .75s;
+  z-index: 1;
+}
+
+#hamburgerMenu ul li {
+  padding: 3px 0;
+}
+
+#hamburgerMenu input:checked ~ ul {
+  transform: translate(0);
+}
+
+/*==========-==========-==========-==========-==========*/
+/* puldownMenu */
+/* -------------------------------------------------- */
+#puldownMenu {
+  position: fixed;
+  right: 50%;
+  top: 0;
+  z-index: 9;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(99, 99, 99, 0.5);
+}
+
+#puldownMenu p {
+  width: 60px;
+  height: 60px;
+}
+
+#puldownMenu p::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 35%;
+  height: 35%;
+  border-right: springgreen solid 3px;
+  border-bottom: lightskyblue solid 3px;
+  transform: translate(-50%, -80%) rotate(45deg);
+}
+
+#puldownMenu ul {
+  height: 0;
+  overflow: hidden;
+  background-color: rgba(255, 0, 0, 0.8);
+  transition: .5s;
+}
+
+#puldownMenu ul li {
+  padding: 10px;
+  border: solid 1px black;
+  letter-spacing: 1.5px;
+}
+
+#puldownMenu p:hover ~ ul, #puldownMenu:hover ul {
+  height: 200px;
+  width: fit-content;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* トップへ戻るボタン */
+/* -------------------------------------------------- */
+#pagetop p {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9;
+}
+
+#pagetop p a {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 50%;
+  border: #646464 1px solid;
+  opacity: 0.5;
+}
+
+#pagetop p a:hover {
+  opacity: 0.8;
+}
+
+#pagetop p::before {
+  content: "";
+  /* 空文字を追加する */
+  position: absolute;
+  /* 中央から配置 */
+  left: 50%;
+  top: 50%;
+  width: 35%;
+  /* 大きさ指定 */
+  height: 35%;
+  border-top: lightskyblue solid 3px;
+  border-right: springgreen solid 3px;
+  transform: translate(-50%, -20%) rotate(-45deg);
+}

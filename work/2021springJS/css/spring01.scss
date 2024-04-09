@@ -1,0 +1,146 @@
+html{scroll-behavior: smooth;}/* スクロールをスムーズに */
+/*初期化*/
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+   color: rgb(50, 50, 50);
+   /* border: 1px red dotted; */
+}
+li{
+	list-style-type: none;
+	list-style-position: outside;
+}
+img{
+   vertical-align: bottom;/*画像のベースラインを下にする*/
+   max-width: 100%;/*画像の横幅の最大値を親要素に合わせる*/
+}
+a{
+   display: block;
+   text-decoration:none;/*aの下線を非表示にする*/
+   color: rgb(100, 100, 100);
+   &:hover{
+      color: #2d2d2d;
+   }
+}
+
+/*==========-==========-==========-==========-==========*/
+/* ヘッダーと全体の大略 */
+/* -------------------------------------------------- */
+header{
+   background-color: rgba(100, 100, 100, 0.8);
+   position: fixed;
+   width: 100vw;
+   height: 88px;
+   padding: 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   h1{
+      padding: 0 30px;
+      color: rgb(89, 6, 105);
+   }
+   #navi{
+      ul{
+         display: flex;
+         justify-content: flex-end;
+         li{
+            padding: 0 10px;
+            a{
+               color: black;
+               position: relative;
+               &::before{
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 0;
+                  border-bottom: 1px solid black;
+                  transition: 0.2s;
+               }
+               &:hover:before{
+                  width: 100%;
+                  border-bottom: 1px solid black;
+                  transition: 0.1s;
+               }
+            }
+         }
+      }
+   }
+   z-index: 999;
+}
+
+section{
+   width: 100vw;
+   height: 100vh;
+   padding: 20px;
+   padding-top: calc(88px + 20px);
+}
+
+#wrapper{
+   display: flex;
+   flex-wrap: wrap;
+   width: 300vw;
+}
+
+#section01{background: linear-gradient(to bottom, #8f94fb, #4e54c8);}
+#section02{background-color: yellow;}
+#section03{background-color: darkorchid;}
+#section04{background-color: cyan;}
+#section05{background-color: greenyellow;}
+#section06{background-color: hotpink;}
+#section07{background-color: orange;}
+#section08{background-color: khaki;}
+#section09{background-color: lightgreen;}
+
+body{
+   overflow: hidden;
+}
+
+/*==========-==========-==========-==========-==========*/
+/* 詳細 */
+/* -------------------------------------------------- */
+#section01{
+
+}
+
+/*==========-==========-==========-==========-==========*/
+#section02{
+
+}
+
+/*==========-==========-==========-==========-==========*/
+#section03{
+   .item{
+      padding: 30px;
+      button{
+         padding: 10px;
+         margin: 0 10px;
+      }
+   }
+   #form{
+      padding: 30px 40px;
+      button{
+         padding: 5px 10px;
+      }
+      display: none;
+      flex-wrap: wrap;
+      p{
+         width: 100%;
+      }
+      #textMessage,#timeMessage{
+         padding-left: 30px;
+      }
+   }
+}
+
+/*==========-==========-==========-==========-==========*/
+#section04{
+
+}
+
+/*==========-==========-==========-==========-==========*/
+
+
+/*==========-==========-==========-==========-==========*/

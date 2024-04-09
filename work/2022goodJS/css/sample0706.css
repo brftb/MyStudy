@@ -1,0 +1,53 @@
+#contents-5 {
+  height: 200px;
+}
+
+#contents-5 h2 {
+  margin-bottom: 20px;
+}
+
+#contents-5 .item {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#contents-5 #draggable {
+  width: calc(200px - 20px);
+  height: 30px;
+  text-align: center;
+  background: white;
+}
+
+#contents-5 .dropzone {
+  width: 200px;
+  height: 50px;
+  background: blueviolet;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* -------------------------------------------------- */
+#contents-4 td select {
+  height: 150px;
+}
+
+#contents-4 .single, #contents-4 select {
+  width: 150px;
+}
+
+#contents-4 .multi {
+  width: 30px;
+}
+
+#contents-4 th, #contents-4 td {
+  padding: 0.5rem;
+}
+
+/* -------------------------------------------------- */
+footer {
+  text-align: center;
+}
+
+footer p {
+  color: #6c757d !important;
+}

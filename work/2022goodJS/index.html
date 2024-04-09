@@ -1,0 +1,238 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+<head>
+   <meta charset="utf-8">
+   <title>JSまとめ</title>
+   <link rel="stylesheet" href="./css/BS.css">
+   <link rel="stylesheet" href="./css/sample1.css">
+   <link rel="stylesheet" href="./css/sample0706.css">
+   <script src="./js/JS21S10611.js" defer></script>
+   <script src="./js/JS0706.js" defer></script>
+</head>
+<body>
+
+<header class="displayFlex">
+   <h1 id="id-hi">イベント処理（課題4:総復習の改変版）</h1>
+   <nav>
+      <ul>
+         <li><a href="#contents-1">ボタン操作1</a></li>
+         <li><a href="#contents-2">ボタン操作2</a></li>
+         <li><a href="#contents-3">ラジオボタン操作</a></li>
+         <li><a href="#contents-4">ログイン操作</a></li>
+         <li><a href="#contents-5">ドラッグイベント</a></li>
+      </ul>
+   </nav>
+</header>
+
+<main>
+
+<article class="contents" id="contents-1">
+   <h2>ボタン操作1</h2>
+   <h3>計算処理(小数点有）</h3>
+   <p class="question">
+      小数点の値計算を含む四則演算を行う。<br>
+      【加点】小数第2位までで四捨五入を行う　（123.4567 ⇒　123.46)
+   </p>
+   <p>
+      値<input id="calcVal-1" type="text" name="" value="">
+      値<input id="calcVal-2" type="text" name="" value="">
+   </p>
+   <p>
+      <button class="calcBtn" name="" value="add">+</button>
+      <button class="calcBtn" name="" value="sub">-</button>
+      <button class="calcBtn" name="" value="multi">×</button>
+      <button class="calcBtn" name="" value="division">÷</button>
+   </p>
+   <p id="answer">結果</p>
+</article><!-- contents -->
+
+<article class="contents" id="contents-2">
+   <h2>ボタン操作2</h2>
+   <h3>BMI計算</h3>
+   <p class="question">
+      ＢＭＩ計算を行う（仕様はjv21を参考）<br>
+      【加点】身長、体重のテキストに入力された場合のみボタンを活性させる
+   </p>
+   <div class="displayFlex">
+      <p>身長（cm)<input class="userInf" type="text" name="" value=""></p>
+      <p>体重(kg)<input class="userInf" type="text" name="" value=""></p>
+      <button id="BMIBtn" name="" value="" disabled="false">BMI計算</button>
+   </div>
+   <div class="displayFlex result">
+      <p id="displayBmi">BMI値</p>
+      <p id="displayFigure">体型</p>
+   </div>
+</article><!-- contents -->
+
+<article class="contents" id="contents-3">
+   <h2>ラジオボタン操作</h2>
+   <h3>活性／非活性</h3>
+   <p class="question">
+      検索：全てのテキストを活性にする。<br>
+      登録：価格（上限）のみ非活性にする。<br>
+      更新：商品番号、価格（下限）を非活性にする。<br>
+      削除：商品番号のみ活性にする。
+   </p>
+   <form id="myform">
+      <h4>商品管理</h4>
+      <div class="displayFlex" id="choice">
+         <label>
+            <input class="choice" type ="radio" name="choice" value="search" checked>
+            <div class="displayFlex icon">
+               <img src="./img/search.png" alt="search">
+               <span>検索</span>
+            </div>
+         </label>
+         <label>
+            <input class="choice" type ="radio" name="choice" value="regist">
+            <div class="displayFlex icon">
+               <img src="./img/regist.png" alt="regist">
+               <span>登録</span>
+            </div>
+         </label>
+         <label>
+            <input class="choice" type ="radio" name="choice" value="update">
+            <div class="displayFlex icon">
+               <img src="./img/update.png" alt="update">
+               <span>更新</span>
+            </div>
+         </label>
+         <label>
+            <input class="choice" type ="radio" name="choice" value="delete">
+            <div class="displayFlex icon">
+               <img src="./img/delete.png" alt="delete">
+               <span>削除</span>
+            </div>
+         </label>
+      </div>
+      <table>
+         <tr>
+            <td>商品番号</td>
+            <td><input type="text" id="product-no" name="product-no" value =""></td>
+         </tr>
+         <tr>
+            <td>商品名</td>
+            <td><input type="text" id="product-name" name="product-name" value="" ></td>
+         </tr>
+         <tr>
+            <td>価格(下限）</td>
+            <td><input type="text" id="price-min" name="price-min" value=""></td>
+            <td>価格(上限）</td>
+            <td><input type="text" id="price-max" name="price-max" value=""></td>
+         </tr>
+      </table>
+   </form>
+</article><!-- contents -->
+
+<article class="contents" id="contents-4">
+   <h2>login</h2>
+   <h3>ログイン</h3>
+   <p class="question">
+      ユーザー名：5桁以上でエラー<br>
+      パスワード：8～12の範囲外でエラー<br>
+      パスワードとパスワード（確認）：一致しない場合、エラー<br>
+      <br>
+      【加点】ログインボタンが押下されたらエラーチェックをおこなう<br>
+      全てのテキストボックスに入力されるまで「ログイン」ボタンが非活性<br>
+      「キャンセル」ボタンを追加して、キャンセルを押下すると値がクリアされる
+   </p>
+   <form action="#form" method="post" id="form">
+      <table>
+         <tbody>
+            <tr>
+               <th class="tableMenu">ユーザー名：</th>
+               <td><input type="text" name="name" id="userName" data-error_placement="#nameErrorPlace"></td>
+               <td></td>
+               <td id="nameErrorPlace"></td>
+            </tr>
+            <tr>
+               <th class="tableMenu">パスワード：</th>
+               <td><input type ="password" name="password" class="password" data-error_placement="#passwordErrorPlace"></td>
+               <td><label><input type="checkbox" class="checkbox">表示</label></td>
+               <td id="passwordErrorPlace"></td>
+            </tr>
+            <tr>
+               <th class="tableMenu">パスワード(確認)：</th>
+               <td><input type ="password" name="passwordRe" class="password" data-error_placement="#passwordReErrorPlace"></td>
+               <td><label><input type="checkbox" class="checkbox">表示</label></td>
+               <td id="passwordReErrorPlace"></td>
+            </tr>
+            <tr>
+               <th class="tableMenu">年齢</th>
+               <td><input name="age" type="number" class="single" data-error_placement="#ageErrorPlace"></td>
+               <td id="ageErrorPlace"></td>
+            </tr>
+            <tr>
+               <th class="tableMenu">メールアドレス</th>
+               <td><input name="mail" type="textarea" class="single" data-error_placement="#mailErrorPlace"></td>
+               <td id="mailErrorPlace"></td>
+            </tr>
+            <tr>
+               <th class="tableMenu">メールアドレス（確認）</th>
+               <td><input name="mail2" type="textarea" class="single" data-error_placement="#mail2ErrorPlace"></td>
+               <td id="mail2ErrorPlace"></td>
+            </tr>
+            <tr>
+               <th class="tableMenu" rowspan="2">性別（必須）</th>
+               <td><label><input type="radio" name="gender" value="m" class="multi" data-error_placement="#genderErrorPlace">male</label></td>
+               <td rowspan="2" id="genderErrorPlace"></td>
+            </tr>
+            <tr>
+               <td><label><input type="radio" name="gender" value="f" class="multi">female</label></td>
+            </tr>
+            <tr>
+               <th class="tableMenu">好きな色は？<br>（アンケート１）</th>
+               <td><select name="color" multiple data-error_placement="#colorErrorPlace">
+                  <option value="0">選択してください</option>
+                  <option value="1" class="color">黒</option>
+                  <option value="2" class="color">白</option>
+                  <option value="3" class="color">赤</option>
+                  <option value="4" class="color">緑</option>
+                  <option value="5" class="color">青</option>
+                  <option value="6" class="color">黄</option>
+               </select></td>
+               <td id="colorErrorPlace"></td>
+            </tr>
+            <tr>
+               <th class="tableMenu" rowspan="2">好きな科目は？<br>（アンケート２）</th>
+               <td><label><input type="checkbox" name="subject" class="multi" data-error_placement="#subjectErrorPlace">PHP</label></td>
+               <td rowspan="2" id="subjectErrorPlace"></td>
+            </tr>
+            <tr>
+               <td><label><input type="checkbox" name="subject" class="multi">JAVA</label></td>
+            </tr>
+         </tbody>
+      </table>
+      <button>ログイン</button>
+      <button id="cancelBtn">キャンセル</button>
+   </form>
+</article><!-- contents -->
+
+<article class="contents" id="contents-5">
+   <h2>0706 drag event</h2>
+   <div class="item displayFlex">
+      <div class="dropzone">
+         <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+            <p>This div is draggable</p>
+         </div>
+      </div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+   </div>
+</article><!-- contents -->
+
+</main>
+
+<footer>
+   <p>COPYRIGHT © ALL RIGHTS RESERVED.</p>
+</footer>
+
+<div id="pagetop">
+   <p><a href="#"></a></p>
+</div>
+
+<script src="./js/jquery-3.6.0.min.js" defer></script>
+<script src="./js/jquery.validate.min.js" defer></script>
+</body>
+</html>
