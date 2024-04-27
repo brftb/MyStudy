@@ -14,3 +14,13 @@
 [リクルートのブラウザの仕組みについての研修資](https://speakerdeck.com/recruitengineers/browser-b45d3a59-af2b-449c-992e-fd7563745f80?slide=51)
 
 
+***
+
+
+[紙っぽいデザイン](https://note.com/akane_desu/n/n80f7e56eb346)
+[線形代数](https://togetter.com/li/2352934)
+[ふきだしcss](https://ics.media/entry/240425/)
+[]()
+[]()
+[]()
+
