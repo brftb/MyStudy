@@ -1,0 +1,82 @@
+/* -------------------------------------------------- */
+// function
+
+@function mono($per){
+   @return mix(white,black ,$per);
+}
+@function border-mono($per){
+   @return solid 1px mix(white,black ,$per);
+}
+
+
+
+input[type="text"],
+input[type="time"],
+input[type="date"],
+textarea,
+input[type="password"] {
+   outline: none;
+   background: rgba(250,250,250,1);
+   color: #111;
+   letter-spacing: 1px; //字間
+   text-indent: 1px;
+   border: solid 1px #000;
+   border-radius: 1px;
+   text-align: left;
+   padding: 7px 12px;
+   &:-webkit-autofill {
+      box-shadow: 0 0 0 1000px #fff inset;
+   }
+}
+
+button {
+   display: block;
+   font-size: 0.9em;
+   background: #fff;
+   color: #000;
+   border: solid 1px #000;
+   border-radius: 1px;
+   padding: 7px 15px;
+   letter-spacing: 3px;
+   text-indent: 3px;
+   transition: 0.3s;
+   cursor: pointer;
+   &:hover {
+      background: #000;
+      color: #fff;
+   }
+}
+
+
+//input[type="file"]
+label{
+   display: block;
+}
+
+%abs-center{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+%flex-center{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+@mixin hoverBig{
+   &:hover{
+      transform: scale(1.2);
+      opacity: 1;
+   }
+}
+.parent{
+   pointer-events: none;
+   transition: all 1s;
+   .child{
+      pointer-events: auto;
+      @include hoverBig();
+      transition: all 1s;
+   }
+}

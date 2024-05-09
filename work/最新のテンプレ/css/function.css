@@ -1,0 +1,62 @@
+/* -------------------------------------------------- */
+input[type="text"],
+input[type="time"],
+input[type="date"],
+textarea,
+input[type="password"] {
+  outline: none;
+  background: #fafafa;
+  color: #111;
+  letter-spacing: 1px;
+  text-indent: 1px;
+  border: solid 1px #000;
+  border-radius: 1px;
+  text-align: left;
+  padding: 7px 12px;
+}
+
+input[type="text"]:-webkit-autofill,
+input[type="time"]:-webkit-autofill,
+input[type="date"]:-webkit-autofill,
+textarea:-webkit-autofill,
+input[type="password"]:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #fff inset;
+}
+
+button {
+  display: block;
+  font-size: 0.9em;
+  background: #fff;
+  color: #000;
+  border: solid 1px #000;
+  border-radius: 1px;
+  padding: 7px 15px;
+  letter-spacing: 3px;
+  text-indent: 3px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #000;
+  color: #fff;
+}
+
+label {
+  display: block;
+}
+
+.parent {
+  pointer-events: none;
+  transition: all 1s;
+}
+
+.parent .child {
+  pointer-events: auto;
+  transition: all 1s;
+}
+
+.parent .child:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
