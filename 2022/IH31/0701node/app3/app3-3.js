@@ -6,7 +6,7 @@ const app = express();
 //// パス指定用モジュール
 app.use(express.json()); // get以外の値のときに必要
 app.use(express.urlencoded({encoded: true})); // get以外の値のときに必要
-app.use(express.static("/public"));
+app.use(express.static(__dirname+"/public"));
 
 //// endpoint
 app.get('/', function(req, res){
