@@ -4,6 +4,12 @@ const form = document.getElementById("chat-form");
 form.addEventListener("submit", function(event){
     event.preventDefault();
 
+    // join room
+    const sendData = {
+        chatid: "1"
+    }
+    socketio.emit ('c2s-join', sendData);
+
     const input_message = document.getElementById("get-text").value;
     socketio.emit('c2s-chat3', input_message); // サーバーに送信①
 });

@@ -41,7 +41,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+const socketio = new Server(server);
 ```
 上記をいろいろ省略して記述したものが下記
 ```js:server.js
@@ -53,13 +53,13 @@ const Server = require('http').Server(app);
 
 #### サーバーの起動
 ```js:server.js
-const io = require('socket.io')(Server);
+const socketio = require('socket.io')(Server);
 Server.listen(config.port);
 // Socket接続（コネクション）
-io('connection',(socket)=>{
+socketio('connection',(socket)=>{
    // クライアントに送信
    socket.emit('s2c', server_msg); // only the client
-   io.emit('s2c', server_msg); // all client
+   socketio.emit('s2c', server_msg); // all client
    // 待ち受け
    socket.on('c2s', function(msg){
       console.log('ソケットc2s: '+msg);
@@ -77,12 +77,12 @@ io('connection',(socket)=>{
 ***
 ## 応用的な記述方法
 ### 送信タイミングの指定
+<span style="color:crimson;">ソケット接続確率直後</span>
+
 ```js:client.html
 io('connection',(socket)=>{
    // ソケット接続確率直後
-   io('connection'){
-      socketio.emit('login', input_msg);
-   }
+
 
    // ボタン押下時
    const form = document.getElementById("chat-form");
@@ -122,24 +122,33 @@ socket.on('c2s',function(msg){ // データ「c2s:msg」を受信したら
 `room`は双方向・リアルタイムデータ送受信を任意の範囲で行うための仕組み。
 `room`を使用すると、その部屋に所属するクライアント間のみでデータをやり取りすろことが可能。
 
-<span style="font-size:10px;">ネットワークのーーーーーーーーー通信みたいなイメージ</span>
+<span style="font-size:10px;">ネットワークのマルチキャスト通信みたいなイメージ</span>
+<span style="font-size:10px;">`socketio.emit('s2c', server_msg); // only the client`がブロードキャスト</span>
+<span style="font-size:10px;">`socket.emit('s2c', server_msg); // all client`がユニキャスト</span>
 
 ### 動きの流れ
 1. クライアントがルーム名を送信
    ```js:client.html
-   const input_message = document.getElementById("get-text").value;
-   socketio.emit('c2s-chat3', input_message);
+   const sendData = {
+      chatid: "1"
+   }
+   socketio.emit ('c2s-join', sendData);
    ```
 
 2. サーバーがルーム名を受け取り、参加
    ```js:server.js
-   socket.join（msg・chatid）：
+   socketio.on('c2s-join', (data)=>{
+      socket.join(data.chatid);
+   });
    ```
 
 3. クライアントからの送信はネームスペースを付ける
    ```js:client.html
-   const input_message = document.getElementById("get-text").value;
-   socketio.emit('c2s-chat3', input_message);
+   const sendData = {
+      chatid: "1",
+      input1: document.getElementById("chat-input1").value,
+      input2: document.getElementById("chat-input2").value,
+   }
    ```
 
 4. サーバーからの送信はルーム名を付ける
