@@ -20,7 +20,8 @@
 [紙っぽいデザイン](https://note.com/akane_desu/n/n80f7e56eb346)
 [線形代数](https://togetter.com/li/2352934)
 [ふきだしcss](https://ics.media/entry/240425/)
-
+0512
+[CSSをコピペするだけでさまざまな図形](https://coliss.com/articles/build-websites/operation/css/css-shape.html)
 []()
 []()
 []()

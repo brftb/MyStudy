@@ -243,7 +243,7 @@ a:hover {
 
 /* -------------------------------------------------- */
 /* 空要素を非表示に */
-.empty {
+.d-none {
   display: none;
 }
 
@@ -282,20 +282,25 @@ button {
   height: auto;
   margin: 0 10px;
   padding: 6px 10px;
-  background-color: #64b4f5;
-  background-color: #84c2fc;
-  color: black;
-  font-size: 16px;
-  font-weight: 500;
+  background-color: #2194ff;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 400;
   cursor: pointer;
   text-align: center;
+  border: 1.3px solid snow;
   border-radius: .75rem;
+  letter-spacing: .3px;
+  box-shadow: 0.2rem 0.3rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 button:hover {
-  background-color: #5dacec;
-  background-color: #90c9ff;
-  color: #250f02;
+  background-color: #50aaff;
+  color: snow;
+}
+
+button:active {
+  box-shadow: 0.2rem 0.3rem 1rem rgba(0, 0, 0, 0.15) inset;
 }
 
 .notBtn {
@@ -349,27 +354,24 @@ button:hover {
   height: auto;
   margin: 0 10px;
   padding: 6px 10px;
-  background-color: #84c2fc;
-  color: black;
-  font-size: 16px;
-  font-weight: 500;
+  background-color: #2194ff;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 400;
   border-radius: .75rem;
-  border: #0f0f0f 2px solid;
-  border-top-color: dimgray;
-  border-left-color: dimgray;
   text-align: center;
+  letter-spacing: .3px;
+  box-shadow: 0.2rem 0.3rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .buttonAnchor:hover {
   text-decoration: none;
-  background-color: #90c9ff;
-  color: #250f02;
+  background-color: #50aaff;
+  color: snow;
 }
 
 .buttonAnchor:active {
-  border: dimgray 2px solid;
-  border-top-color: #0f0f0f;
-  border-left-color: #0f0f0f;
+  box-shadow: 0.2rem 0.3rem 1rem rgba(0, 0, 0, 0.15) inset;
 }
 
 .destructBtn {

@@ -205,7 +205,7 @@ a{
 }
 /* -------------------------------------------------- */
 /* 空要素を非表示に */
-.empty{display: none;} /* 削除・領域も除去 */
+.d-none{display: none;} /* 削除・領域も除去 */
 .hidden{visibility: hidden;} /* 非表示・不可視 */
 .d-unset{display: unset;}
 .d-block{display: block;}
@@ -231,19 +231,23 @@ button{
    height: auto;
    margin: 0 10px;
    padding: 6px 10px;
-   background-color: rgb(100, 180, 245);
-   background-color: rgb(132, 194, 252);
-   color: black;
-   font-size: 16px;
-   font-weight: 500;
+   background-color: rgb(33, 148, 255);
+   color: white;
+   font-size: 1.6rem;
+   font-weight: 400;
    cursor: pointer;
    text-align: center;
+   border: 1.3px solid snow;
    border-radius: .75rem;
-}
-button:hover{
-   background-color: rgb(93, 172, 236);
-   background-color: rgb(144, 201, 255);
-   color: rgb(37, 15, 2);
+   letter-spacing: .3px;
+   box-shadow: .2rem .3rem 1rem rgba(0,0,0,.15);
+   &:hover{
+      background-color: rgb(80, 170, 255);
+      color: snow;
+   }
+   &:active{
+      box-shadow: .2rem .3rem 1rem rgba(0,0,0,.15) inset;
+   }
 }
 .notBtn{
    padding: 0;
@@ -290,26 +294,22 @@ button:hover{
    height: auto;
    margin: 0 10px;
    padding: 6px 10px;
-   background-color: rgb(132, 194, 252);
-   color: black;
-   font-size: 16px;
-   font-weight: 500;
+   background-color: rgb(33, 148, 255);
+   color: white;
+   font-size: 1.6rem;
+   font-weight: 400;
    border-radius: .75rem;
+   text-align: center;
+   letter-spacing: .3px;
+   box-shadow: .2rem .3rem 1rem rgba(0,0,0,.15);
    &:hover{
       text-decoration: none;
-      background-color: rgb(144, 201, 255);
-      color: rgb(37, 15, 2);
+      background-color: rgb(80, 170, 255);
+      color: snow;
    }
-   border: #0f0f0f 2px solid;
-   border-top-color: dimgray;
-   border-left-color: dimgray;
    &:active{
-      // box-shadow: .2rem .3rem 1rem rgba(0,0,0,.15) inset;
-      border: dimgray 2px solid;
-      border-top-color: #0f0f0f;
-      border-left-color: #0f0f0f;
+      box-shadow: .2rem .3rem 1rem rgba(0,0,0,.15) inset;
    }
-   text-align: center;
 }
 .destructBtn{
    //自爆switchのやつ
