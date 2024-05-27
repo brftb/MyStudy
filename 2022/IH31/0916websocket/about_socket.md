@@ -1,16 +1,16 @@
 # `node.js`のモジュールである`socket.io`の使い方
 
-## 概要
+## 1. 概要
 **webSocket**
 サーバーからプッシュする（双方向）
 たまに対応していないブラウザやバージョンがある
 
-## 導入
+## 2. 導入
 `npm install socket.io`
 
 
 ***
-## 基本的な記述方法
+## 3. 基本的な記述方法
 **Socket通信**
 `emit` データの送信
 `on` 接続の待ち受け
@@ -75,29 +75,32 @@ io('connection',(socket)=>{
 ```
 
 ***
-## 応用的な記述方法
+## 4. 応用的な記述方法
 ### 送信タイミングの指定
-<span style="color:crimson;">ソケット接続確率直後</span>
-
 ```js:client.html
-io('connection',(socket)=>{
-   // ソケット接続確率直後
-
-
-   // ボタン押下時
-   const form = document.getElementById("chat-form");
-   form.addEventListener("submit", function(event){
-      event.preventDefault(); // イベントに関連するデフォルトの動作を防ぐ
-      const input_message = document.getElementById("get-text").value;
-      socketio.emit('c2s', input_message); // サーバーに送信
-   });
-   // ボタン押下時２
-   const submitBtn = document.getElementById("submit-btn");
-   submitBtn.addEventListener("click", (e)=>{
-      const input_message = document.getElementById("get-text").value;
-      socketio.emit('c2s', input_message); // サーバーに送信
-   });
-})
+const socketio = io(); // サーバーへ接続
+// ソケット接続確率直後に送信
+socketio.on('connect', () => {
+  // socketID : 001
+  socketio.emit('login', my_user_name);
+});
+```
+クライアントがサーバーに接続すると、Socket.io は自動的に connect イベントを発生させます。
+connect イベントはクライアントがサーバーに接続したことを通知するための特別なイベントです。
+```js:client.html
+// ボタン押下時
+const form = document.getElementById("chat-form");
+form.addEventListener("submit", function(event){
+    event.preventDefault(); // イベントに関連するデフォルトの動作を防ぐ
+    const input_message = document.getElementById("get-text").value;
+    socketio.emit('c2s', input_message); // サーバーに送信
+});
+// ボタン押下時２
+const submitBtn = document.getElementById("submit-btn");
+submitBtn.addEventListener("click", (e)=>{
+    const input_message = document.getElementById("get-text").value;
+    socketio.emit('c2s', input_message); // サーバーに送信
+});
 ```
 
 ### 複数のデータ(オブジェクト)の送受信
@@ -117,7 +120,7 @@ socket.on('c2s',function(msg){ // データ「c2s:msg」を受信したら
 
 
 ***
-## room
+## 4. room(記述途中)
 
 `room`は双方向・リアルタイムデータ送受信を任意の範囲で行うための仕組み。
 `room`を使用すると、その部屋に所属するクライアント間のみでデータをやり取りすろことが可能。
@@ -178,4 +181,7 @@ socket.on('c2s',function(msg){ // データ「c2s:msg」を受信したら
 
 
 namespace
+
+
+
 
