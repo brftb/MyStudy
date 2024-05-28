@@ -79,14 +79,13 @@ io('connection',(socket)=>{
 ### 送信タイミングの指定
 ```js:client.html
 const socketio = io(); // サーバーへ接続
-// ソケット接続確率直後に送信
+// ソケット接続確立直後に送信
 socketio.on('connect', () => {
   // socketID : 001
   socketio.emit('login', my_user_name);
 });
 ```
-クライアントがサーバーに接続すると、Socket.io は自動的に connect イベントを発生させます。
-connect イベントはクライアントがサーバーに接続したことを通知するための特別なイベントです。
+`connect` イベントはクライアントがサーバーに接続したことを通知するための特別なイベントです。クライアントがサーバーに接続すると、Socket.io は自動的に `connect` イベントを発生させます。
 ```js:client.html
 // ボタン押下時
 const form = document.getElementById("chat-form");
@@ -97,7 +96,7 @@ form.addEventListener("submit", function(event){
 });
 // ボタン押下時２
 const submitBtn = document.getElementById("submit-btn");
-submitBtn.addEventListener("click", (e)=>{
+submitBtn.addEventListener("click", ()=>{
     const input_message = document.getElementById("get-text").value;
     socketio.emit('c2s', input_message); // サーバーに送信
 });
@@ -123,7 +122,7 @@ socket.on('c2s',function(msg){ // データ「c2s:msg」を受信したら
 ## 4. room(記述途中)
 
 `room`は双方向・リアルタイムデータ送受信を任意の範囲で行うための仕組み。
-`room`を使用すると、その部屋に所属するクライアント間のみでデータをやり取りすろことが可能。
+`room`を使用すると、その部屋に所属するクライアント間のみでデータをやり取りすることが可能。
 
 <span style="font-size:10px;">ネットワークのマルチキャスト通信みたいなイメージ</span>
 <span style="font-size:10px;">`socketio.emit('s2c', server_msg); // only the client`がブロードキャスト</span>
