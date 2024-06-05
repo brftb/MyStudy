@@ -404,6 +404,26 @@ button{
       background-color: rgb(132, 194, 252);
    }
 }
+.btn-success{
+   color:#fff;
+   background-color:#28a745;
+   border-color:#28a745;
+   &:hover{
+      color:#fff;
+      background-color:#218838;
+      border-color:#1e7e34
+   }
+}
+.btn-danger{
+   color:#fff;
+   background-color:#dc3545;
+   border-color:#dc3545;
+   &:hover{
+      color:#fff;
+      background-color:#c82333;
+      border-color:#bd2130
+   }
+}
 
 .pointer{
    cursor: pointer;
