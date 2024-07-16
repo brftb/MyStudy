@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+      target: development
+    image: node_development
+    container_name: app
+    ports:
+      - '3000:3000'
+    init: true
+    tty: true
+    volumes:
+      - ./app:/home/node
+    # command: >
+    #   sh -c "npm ci &&
+    #     npm install nodemon -g &&
+    #     npm run dev"
+
+  db:
+    image: mariadb:latest
+    container_name: db
+    ports:
+      - '33060:3306'
+    init: true
+    tty: true
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    networks:
+      - backend
+
+networks:
+  backend:
+    external: true

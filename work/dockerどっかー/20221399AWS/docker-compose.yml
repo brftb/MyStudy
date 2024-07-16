@@ -1,0 +1,56 @@
+version: '3'
+services:
+  # nodeで構成するWebサーバコンテナ
+  web:
+    image: node:alpine3.16
+    container_name: web-server
+    ports:
+      - 3000:3000
+    stdin_open: true
+    # 起動させっぱなし
+    tty: true
+    # 起動順制御（正常起動を待つ）
+    # depends_on:
+    #   - db:
+    #     condition: service_healthy
+    # environment:
+    #   - DATABASE_URL=postgres://root:password@db:3306/postgres
+    volumes:
+      - ./containers/web/app/20221399SK31server:/usr/src/app
+    working_dir: /usr/src/app
+    # copy: ./package.json /usr/src/app
+    command: >
+      sh -c 'npm install -g npm@9.4.1 &&
+      node /usr/src/app/bin/www'
+    # command:
+    #   [npm,install
+    #   node,/usr/src/app/bin/www]
+    networks:
+      - web
+
+  # dbコンテナ
+  maria-db:
+    image: mariadb:10.11-rc
+    container_name: db-server
+    restart: always
+    volumes:
+      - ./db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      web:
+        # db-serverのnetwork内での別名
+        aliases:
+          - db-container
+    # ports:
+    #   - '3306:3306'
+    stdin_open: true
+    tty: true
+
+volumes:
+  db_data:
+
+networks:
+  web:
+  # 既存のネットワークへの接続を行う
+    external: true
